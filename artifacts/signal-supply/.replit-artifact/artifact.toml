@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Signal Supply"
+description = "A responsive electronics storefront inspired by Crutchfield, with customer shopping and a separate admin area for catalog and order management. Supports physical-product checkout and recurring plans through Shopify."
+version = "1.0.0"
+id = "artifacts/signal-supply"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18499
+
+[services.development]
+run = "pnpm --filter @workspace/signal-supply run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/signal-supply", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/signal-supply/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18499"
+BASE_PATH = "/"
