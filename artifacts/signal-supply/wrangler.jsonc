@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "signal-supply",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist/public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    // Send /api/* to the Worker; everything else is served from static assets.
+    "run_worker_first": ["/api/*"]
+  },
+  "observability": { "enabled": true }
+  // Secrets (set with `wrangler secret put`, never commit them):
+  //   STRIPE_SECRET_KEY  - Stripe test key (sk_test_...)
+  //   PUBLIC_STORE_URL   - e.g. https://signal-supply.<your-subdomain>.workers.dev
+}
