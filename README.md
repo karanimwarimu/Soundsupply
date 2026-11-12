@@ -2,7 +2,7 @@
 
 A demo e-commerce storefront for an independent audio and electronics shop. It's built with React and TypeScript and runs on Cloudflare Workers, with a Stripe test-mode checkout.
 
-**Live demo:** https://signal-supply.workspace-signal-supply.workers.dev
+**Live demo:** https://signal-supply.soundsupply.workers.dev
 
 > **Demo only.** Checkout runs in Stripe test mode, so no real payments are taken. Orders aren't saved or shipped, and the catalog is sample data.
 
